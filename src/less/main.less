@@ -1,7 +1,249 @@
 @import 'media';
 
-@font-face {
+@menu-color: #f2f2ed;
+@font-color: #cc0000;
+.page {
+    width: 100%;
+    margin: 0;
+    background-color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+
+.page__header {
+    width: 100%;
+    color: @font-color;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1400px;
+    margin: 0 auto;
 
 }
+
+.container__logo {
+    align-items: center;
+    padding: 35px 0 29px 0;
+
+}
+
+.container__ogetto-logo {
+    background-color: red;
+    background-image: url(../img/oggetto_logo.svg);
+    background-repeat: no-repeat;
+    margin: 19px 0 19px 0;
+}
+
+.container__contact {
+    align-items: center;
+    padding: 35px 0 29px 0;
+}
+
+.page__menu {
+    width: 100%;
+    background-color: @menu-color;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1400px;
+    margin: 0 auto;
+    height: 44px;
+}
+
+.categories-menu__item {
+    color: @font-color;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    margin-right: 20px;
+
+}
+
+.item_active {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 20px;
+
+}
+
+.search__input {
+    width: 277px;
+    min-height: 36px;
+    border: 1px solid #d9d9d4;
+    vertical-align: middle;
+    margin-left: 22px;
+    padding-left: 15px;
+    outline: none;
+}
+
+.search__button {
+    position: relative;
+    top: 7px;
+    right: 32px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: url("../img/icons/magnifying-glass.png") no-repeat;
+    color: red;
+    margin-right: -25px;
+    outline: none;
+}
+
+.breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 1400px;
+    margin: 0 auto;
+    padding: 50px 0 19px 0;
+    font-size: 16px;
+    text-decoration: none;
+
+}
+
+.breadcrumbs__item {
+    margin-right: 4px;
+    margin-left: 4px;
+    color: @font-color;
+}
+
+.breadcrumbs__item_active {
+    color: #000000;
+    text-decoration: none;
+}
+
+.page__product {
+    width: 1400px;
+    margin: 0 auto;
+    .product {
+        display: flex;
+        flex-direction:row;
+        justify-content:space-between;
+        .product__img {
+            margin:0 67px 121px 0;
+        }
+    }
+}
+
+.product__description {
+    width: 635px;
+    height: 100px;
+}
+
+.product-price{
+    margin-bottom: 35px;
+}
+.button{
+    vertical-align: middle;
+
+    .button__buy{
+        background-color: @font-color;
+        text-align: center;
+        color: #FFFFFF;
+        border: none;
+        width:200px;
+        font-size: 16px;
+        padding:25px 52px;
+        margin-bottom: 40px;
+    }
+}
+
+.buy-later{
+    .buy-later__img{
+       width: 26px;
+        height: 23px;
+    }
+    .buy-later__text{
+
+        color:#999999;
+    }
+}
+
+// FOOTER
+.page__footer {
+    width: 100%;
+    background-color: @menu-color;
+    border-top: 1px solid #d9d9d4;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    width: 1400px;
+    margin: 0 auto;
+
+    .footer__top {
+        padding: 60px 0 60px 0;
+        border-bottom: 1px solid #d9d9d4;
+
+    }
+    .footer__copyright {
+        padding: 34px 0 103px 0;
+    }
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .footer-content__item {
+
+    }
+}
+
+.footer-menu {
+    .footer-menu__header {
+        display: flex;
+        padding-bottom: 24px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.footer-link {
+    columns: 2;
+    line-height: 7px;
+    .footer-link__link {
+        text-decoration: none;
+        color: #000;
+        display: flex;
+        line-height: normal;
+    }
+}
+
+.info-block {
+    display: flex;
+    flex-direction: row;
+    .info-block__image {
+        padding-bottom: 23px;
+    }
+    .info-block__text {
+        margin-top: 5px;
+        padding-left: 14px;
+    }
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .footer-social__item {
+        padding-bottom: 22px;
+    }
+}
+
+
+
+
 
 

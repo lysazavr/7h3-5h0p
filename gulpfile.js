@@ -19,12 +19,14 @@ gulp.task('styles', () => {
         .pipe(less())
         .pipe(autoprefixer())
         .pipe(gulp.dest('./dist/css'));
-});
-gulp.task('styles', () => {
     gulp.src('src/less/normalize.css')
-    .pipe(autoprefixer())
-    .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./dist/css'));
 });
+// gulp.task('styles', () => {
+//     gulp.src('src/less/normalize.css')
+//     .pipe(autoprefixer())
+//     .pipe(gulp.dest('./dist/css'));
+// });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')

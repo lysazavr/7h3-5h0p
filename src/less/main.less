@@ -1,5 +1,4 @@
 @import 'media';
-
 @menu-color: #f2f2ed;
 @font-color: #cc0000;
 .page {
@@ -32,15 +31,14 @@
 
 }
 
-.container__ogetto-logo {
-    background-color: red;
-    background-image: url(../img/oggetto_logo.svg);
-    background-repeat: no-repeat;
+.container__oggetto-logo {
     margin: 19px 0 19px 0;
+    fill: red;
 }
 
 .container__contact {
     align-items: center;
+    font-size: 16px;
     padding: 35px 0 29px 0;
 }
 
@@ -127,45 +125,111 @@
     margin: 0 auto;
     .product {
         display: flex;
-        flex-direction:row;
-        justify-content:space-between;
-        .product__img {
-            margin:0 67px 121px 0;
-        }
+        flex-direction: row;
+        justify-content: space-between;
+
     }
 }
-
-.product__description {
-    width: 635px;
-    height: 100px;
+.product__media {
+    width: 50%;
+    margin: 0 67px 121px 0;
 }
 
-.product-price{
+.product-box__product-img{
+    width: 100%;
+    height: auto;
+}
+
+.product__shop {
+    width: 45%;
+    margin-bottom: 121px;
+
+}
+
+.description__product-consist {
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.product-name__brand {
+    width: 100%;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 16px;
+
+}
+
+.product-price {
     margin-bottom: 35px;
 }
-.button{
+
+.product-option__heading {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.option-content {
+    display: flex;
+    flex-direction: row;
+}
+.option {
+    width: 65px;
+    height: 65px;
+    border: 1px solid #000000;
+    margin-right: 9px;
+    position: relative;
+
+}
+.option_click{
+    border:3px solid @font-color;
+    height: 68px;
+    box-sizing: border-box;
+
+}
+
+.option__showcase {
+    display: inline-block;
+    font-size: 36px;
+    position: absolute;
+    top:12px;
+    left:21px;
+
+}
+.option__showcase_size{
+    left:14px;
+}
+.product-price__regular {
+    color: @font-color;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.button {
     vertical-align: middle;
 
-    .button__buy{
+    .button__buy {
         background-color: @font-color;
         text-align: center;
         color: #FFFFFF;
         border: none;
-        width:200px;
+        width: 200px;
         font-size: 16px;
-        padding:25px 52px;
-        margin-bottom: 40px;
+        padding: 25px 52px;
+        margin: 16px 0 40px 0;
     }
 }
 
-.buy-later{
-    .buy-later__img{
-       width: 26px;
+.buy-later {
+    .buy-later__img {
+        width: 26px;
         height: 23px;
     }
-    .buy-later__text{
+    .buy-later__text {
 
-        color:#999999;
+        color: #999999;
+        vertical-align: super;
+        margin-left: 5px;
     }
 }
 
@@ -243,7 +307,4 @@
 }
 
 
-
-
-
-
+@import 'tablets';

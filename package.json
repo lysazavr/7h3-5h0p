@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp"
+    "start": "gulp",
+    "dev": "gulp",
+    "prod": "gulp prod"
   },
   "author": "Andrey Miskov",
   "license": "ISC",
@@ -17,6 +19,9 @@
   },
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-less": "^3.3.0"
+    "gulp-less": "^3.3.0",
+    "install": "^0.10.1",
+    "jquery": "^3.2.1",
+    "normalize.css": "^7.0.0"
   }
 }

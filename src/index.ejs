@@ -25,14 +25,16 @@
     <div class="menu-container wrapper">
         <div class="menu-container__categories">
             <div class="categories-menu">
-                <a href="#" class="item_active">LISP</a> 
-                <a href="#" class="categories-menu__item">OCaml</a> 
-                <a href="#" class="categories-menu__item">Java Script</a> 
-                <a href="#" class="categories-menu__item">Python</a> 
-                <a href="#" class="categories-menu__item">PHP</a>
+                <% const menu = [{title: 'LISP', active: true},
+                    {title: 'OCaml', active: false},
+                    {title: 'Java Script', active: false},
+                    {title: 'Python', active: false},
+                    {title: 'PHP', active: false}] %>
+                <% menu.forEach(function(item) { %>
+                <a href="#"
+                   class="categories-menu__item <% if(item.active) { %> categories-menu__item_active <% } %>"><%= item.title %></a>
+                <% }); %>
             </div>
-
-
         </div>
 
 
@@ -54,20 +56,32 @@
         <label class="btn-menu" for="hmt"> <span class="first"></span> <span class="second"></span> <span
                     class="third"></span> </label>
         <ul class="hidden-menu">
-            <li><a href="#" class="hidden-menu__item_active">LISP</a></li>
-            <li><a href="#" class="hidden-menu__item">OCaml</a></li>
-            <li><a href="#" class="hidden-menu__item">Java Script</a></li>
-            <li><a href="#" class="hidden-menu__item">Python</a></li>
-            <li><a href="#" class="hidden-menu__item">PHP</a></li>
-
+            <% const mobile_Menu = [{title: 'LISP', active: true},
+                {title: 'OCaml', active: false},
+                {title: 'Java Script', active: false},
+                {title: 'Python', active: false},
+                {title: 'PHP', active: false}] %>
+            <% mobile_Menu.forEach(function (item) { %>
+            <li>
+                <a href="#"
+                   class="hidden-menu__item <% if(item.active) { %> hidden-menu__item_active <% } %>">
+                    <%= item.title %></a>
+            </li>
+            <% }); %>
         </ul>
     </div>
 </div>
 
 <div class="page__breadcrumbs wrapper">
+
+
     <div class="breadcrumbs">
-        <a href="#" class="breadcrumbs__item ">LISP </a>/
-        <a href="#" class="breadcrumbs__item">Одежда </a>/
+        <% const sub_Menu = [{title: 'LISP', active: false},
+            {title: 'Одежда', active: false}] %>
+        <% sub_Menu.forEach(function(item) { %>
+        <a href="#" class="breadcrumbs__item">
+            <%= item.title %></a>/
+        <% }); %>
         <p class="breadcrumbs__item breadcrumbs__item_active">Футболки </p>
     </div>
 </div>
@@ -178,14 +192,14 @@
                             <span class="footer-menu__header">Сервис и поддержка</span>
                             <div class="footer-menu__service">
                                 <div class="footer-link link-support">
-                                    <a href="#" class="footer-link__link">Как сделать заказ</a>
-                                    <a href="#" class="footer-link__link">Возврат товара</a>
-                                    <a href="#" class="footer-link__link">Публичная оферта</a>
-                                    <a href="#" class="footer-link__link">Доставка</a>
-                                    <a href="#" class="footer-link__link">Способы оплаты</a>
-                                    <a href="#" class="footer-link__link">Правила продажи</a>
-                                    <a href="#" class="footer-link__link">Возврат денежных средств</a>
-                                    <a href="#" class="footer-link__link">Вопросы и ответы</a>
+                                    <% const footer_Service = ['Как сделать заказ',
+                                        'Возврат товара', 'Публичная оферта', 'Доставка',
+                                        'Способы оплаты', 'Правила продажи', 'Возврат денежных средств',
+                                        'Вопросы и ответы'] %>
+                                    <% footer_Service.forEach(function(link) { %>
+                                    <a href="#" class="footer-link__link">
+                                        <%= link.title %></a>
+                                    <% }); %>
                                 </div>
                             </div>
                         </div>
@@ -198,15 +212,13 @@
                             <span class="footer-menu__header footer-menu__header__company">О компании</span>
                             <div class="footer-menu__service">
                                 <div class="footer-link">
-                                    <a href="#" class="footer-link__link">О нас</a> 
-                                    <a href="#" class="footer-link__link">Контакты</a> 
-                                    <a href="#" class="footer-link__link">Вакансии</a> 
-                                    <a href="#" class="footer-link__link">Партнеры</a> 
-                                    <a href="#" class="footer-link__link">Сертификаты</a> 
-                                    <a href="#" class="footer-link__link">Преимущества</a> 
-                                    <a href="#" class="footer-link__link">Наши скидки</a> 
-
-
+                                    <% const footer_Company = ['О нас',
+                                        'Контакты', 'Вакансии', 'Партнеры',
+                                        'Сертификаты', 'Преимущества', 'Наши скидки'] %>
+                                    <% footer_Company.forEach(function(link) { %>
+                                    <a href="#" class="footer-link__link">
+                                        <%= link.title %></a>
+                                    <% }); %>
                                 </div>
                             </div>
                         </div>

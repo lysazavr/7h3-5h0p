@@ -5,6 +5,9 @@ const autoprefixer = require('gulp-autoprefixer');
 const rename       = require('gulp-rename');
 const ejs          = require('gulp-ejs');
 const gutil        = require('gulp-util');
+const sourcemaps   = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
 
 // Автоперезагрузка при изменении файлов в папке `dist`:
 // Принцип: меняем файлы в `/src`, они обрабатываются и переносятся в `dist` и срабатывает автоперезагрузка.
@@ -12,33 +15,43 @@ const gutil        = require('gulp-util');
 gulp.task('livereload', () => {
     browserSync.create();
 
-browserSync.init({
-    server: {
-        baseDir: 'dist'
-    },
+    browserSync.init({
+        server: {
+            baseDir: 'dist'
+        },
     browser: 'google chrome',
-    files: [
-        'dist/**/*.*'
-    ]
-});
+        files: [
+            'dist/**/*.*'
+        ]
+    });
 });
 
 gulp.task('styles', () => {
     gulp.src('src/less/main.less')
-    .pipe(less())
-    .pipe(autoprefixer())
-    .pipe(gulp.dest('./dist/css'));
-gulp.src('src/less/normalize.css');
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(sourcemaps.write())
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('./dist/css'));
+    gulp.src('src/less/normalize.css');
 });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
-    .pipe(gulp.dest('./dist/img'));
+        .pipe(imagemin(
+            {
+                progressive: true,
+                svgoPlugins: [{removeViewBox: false}],
+                use: [pngquant()],
+                interlaced: true
+            }
+        ))
+        .pipe(gulp.dest('./dist/img'));
 });
 
 gulp.task('js', () => {
     gulp.src('src/js/**/*.*')
-    .pipe(gulp.dest('./dist/js'));
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('html', () => {
@@ -51,10 +64,10 @@ gulp.task('html', () => {
 // Отслеживание изменений в файлах, нужно только при локальной разработке
 gulp.task('watch', () => {
     gulp.watch('src/less/**/*.less', ['styles']);
-gulp.watch('src/**/*.html', ['html']);
-gulp.watch('src/**/*.ejs', ['html']);
-gulp.watch('src/img/**/*.*', ['img']);
-gulp.watch('src/js/**/*.*', ['js']);
+    gulp.watch('src/**/*.html', ['html']);
+    gulp.watch('src/**/*.ejs', ['html']);
+    gulp.watch('src/img/**/*.*', ['img']);
+    gulp.watch('src/js/**/*.*', ['js']);
 });
 
 gulp.task('default', ['styles', 'html', 'img', 'js', 'livereload', 'watch']);

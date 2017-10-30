@@ -33,7 +33,8 @@ gulp.task('styles', () => {
         .pipe(sourcemaps.write())
         .pipe(autoprefixer())
         .pipe(gulp.dest('./dist/css'));
-    gulp.src('src/less/normalize.css');
+    gulp.src('src/less/normalize.css')
+        .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', () => {

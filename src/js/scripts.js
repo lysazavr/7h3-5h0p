@@ -20,7 +20,7 @@ formProduct.addEventListener('click', function (event) {
     }
 });
 function selectOption(node) {
-    data = node.dataset;
+    // data = node.dataset;
     var option = node.getElementsByClassName('option')[0];
     option.classList.add(optionClickClass);
 }

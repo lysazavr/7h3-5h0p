@@ -23,10 +23,16 @@ function selectOption(node) {
     var data = node.dataset;
     var option = node.getElementsByClassName('option')[0];
     option.classList.add(optionClickClass);
+    // change image src
     if (data.src) {
         var imgElement = document.getElementsByClassName('product-box__product-img')[0];
         imgElement.src = data.src;
     }
+    // change input value
+    var targetBlock = findOptionBlock(node);
+    var input = targetBlock.getElementsByClassName('product-option-input')[0];
+    input.value = data.value;
+
 }
 function findOptionBlock(option) {
     var optionBlock = option.parentNode ;

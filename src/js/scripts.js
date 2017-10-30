@@ -20,9 +20,13 @@ formProduct.addEventListener('click', function (event) {
     }
 });
 function selectOption(node) {
-    // data = node.dataset;
+    var data = node.dataset;
     var option = node.getElementsByClassName('option')[0];
     option.classList.add(optionClickClass);
+    if (data.src) {
+        var imgElement = document.getElementsByClassName('product-box__product-img')[0];
+        imgElement.src = data.src;
+    }
 }
 function findOptionBlock(option) {
     var optionBlock = option.parentNode ;

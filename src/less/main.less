@@ -399,7 +399,7 @@
     }
 
     @media @desktop {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         align-items: flex-start;
     }
@@ -827,6 +827,10 @@
 
         &_padding {
             padding-left: 65px;
+
+            @media @phone{
+                padding: 0;
+            }
         }
     }
 

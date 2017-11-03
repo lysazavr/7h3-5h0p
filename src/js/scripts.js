@@ -1,16 +1,16 @@
 // Your code here...
 
 var formProduct = document.getElementById('form-product');
-const optionClickClass = 'option_click';
+const activeOptionClass = 'option_active';
 
 formProduct.addEventListener('click', function (event) {
     var target = event.target;
     while (target != this) {
         if (target.className == 'option-content__item') {
             var targetBlock = findOptionBlock(target);
-            var selectOptions = targetBlock.getElementsByClassName(optionClickClass);
+            var selectOptions = targetBlock.getElementsByClassName(activeOptionClass);
             for (var i = 0; i < selectOptions.length; i++) {
-                selectOptions[i].classList.remove(optionClickClass);
+                selectOptions[i].classList.remove(activeOptionClass);
             }
 
             selectOption(target);
@@ -22,7 +22,7 @@ formProduct.addEventListener('click', function (event) {
 function selectOption(node) {
     var data = node.dataset;
     var option = node.getElementsByClassName('option')[0];
-    option.classList.add(optionClickClass);
+    option.classList.add(activeOptionClass);
     // change image src
     if (data.src) {
         var imgElement = document.getElementsByClassName('product-box__product-img')[0];

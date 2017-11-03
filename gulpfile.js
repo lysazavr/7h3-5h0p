@@ -8,6 +8,7 @@ const gutil        = require('gulp-util');
 const sourcemaps   = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
+const env = process.env.NODE_ENV;
 
 // Автоперезагрузка при изменении файлов в папке `dist`:
 // Принцип: меняем файлы в `/src`, они обрабатываются и переносятся в `dist` и срабатывает автоперезагрузка.
@@ -38,16 +39,22 @@ gulp.task('styles', () => {
 });
 
 gulp.task('img', () => {
-    gulp.src('src/img/**/*.*')
-        .pipe(imagemin(
-            {
-                progressive: true,
-                svgoPlugins: [{removeViewBox: false}],
-                use: [pngquant()],
-                interlaced: true
-            }
-        ))
-        .pipe(gulp.dest('./dist/img'));
+    if(env == 'production') {
+        gulp.src('src/img/**/*.*')
+            .pipe(imagemin(
+                {
+                    progressive: true,
+                    svgoPlugins: [{removeViewBox: false}],
+                    use: [pngquant()],
+                    interlaced: true
+                }
+            ))
+            .pipe(gulp.dest('./dist/img'));
+    }
+    else{
+        gulp.src('src/img/**/*.*')
+            .pipe(gulp.dest('./dist/img'));
+    }
 });
 
 gulp.task('js', () => {

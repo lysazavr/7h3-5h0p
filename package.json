@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
     "dev": "gulp",
-    "prod": "gulp prod",
+    "prod": "gulp prod NODE_ENV=production",
     "lint": "eslint src && stylelint src/less/*.less && ejslint src/*.ejs",
     "precommit": "npm run lint"
   },
-  "author": "Andrey Miskov",
+  "author": "Lusine Pantykina",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.11",

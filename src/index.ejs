@@ -14,9 +14,9 @@
 
 <div class="page__header">
     <div class="header-container wrapper">
-        <img class="container__logo" alt="logo-shop" src="img/the_shop_logo.svg" width="104" height="18">
-        <img class="container__oggetto-logo" alt="oggetto-logo" width="50" height="50" src="img/oggetto_logo.svg">
-        <span class="container__contact">+7 (812)-2-12-85-06</span>
+        <img class="shop-logo" alt="logo-shop" src="img/the_shop_logo.svg">
+        <img class="oggetto-logo" alt="oggetto-logo" src="img/oggetto_logo.svg">
+        <span class="contact-phone">+7 (812)-2-12-85-06</span>
     </div>
 
 </div>
@@ -30,16 +30,20 @@
                     {title: 'Java Script', active: false},
                     {title: 'Python', active: false},
                     {title: 'PHP', active: false}] %>
-                <% menu.forEach(function(item) { %>
-                <a href="#"
-                   class="categories-menu__item <% if(item.active) { %> categories-menu__item_active <% } %>"><%= item.title %></a>
-                <% }); %>
+                <ul class="categories-menu__list">
+                    <% menu.forEach(function(item) { %>
+                    <li class="categories-menu__items">
+                        <a href="#"
+                           class="categories-menu__item <% if(item.active) { %> categories-menu__item_active <% } %>"><%= item.title %></a>
+                    </li>
+                    <% }); %>
+                </ul>
             </div>
         </div>
 
 
-        <div class="menu-container__search">
-            <form class="search">
+        <div class="search">
+            <form class="search-form">
                 <input type="search" class="search__input" placeholder="">
                 <input type="submit" class="search__button" value="">
 
@@ -77,13 +81,17 @@
 
     <div class="breadcrumbs">
         <% const breadcrumbs = ['LISP', 'Одежда', 'Футболки'] %>
-        <% breadcrumbs.forEach(function(item, index) { %>
-            <% if(index < (breadcrumbs.length - 1)) { %>
+        <ul class="breadcrumbs__list">
+            <% breadcrumbs.forEach(function(item, index) { %>
+            <li class="breadcrumbs__items">
+                <% if(index < (breadcrumbs.length - 1)) { %>
                 <a href="#" class="breadcrumbs__item"><%= item %></a>/
-            <% } else { %>
-                <p class="breadcrumbs__item breadcrumbs__item_active"> <%= item %> </p>
-            <% } %>
+                <% } else { %>
+                <span class="breadcrumbs__item breadcrumbs__item_active"> <%= item %> </span>
+                <% } %>
+            </li>
             <% }); %>
+        </ul>
     </div>
 </div>
 
@@ -99,7 +107,7 @@
             <div class="about-product">
                 <div class="about-product__name">
                     <div class="product-name">
-                        <p class="product-name__brand">Футболка Alien technology</p>
+                        <h1 class="product-name__brand">Футболка Alien technology</h1>
                     </div>
                 </div>
                 <div class="about-product__description">
@@ -119,41 +127,57 @@
                         <p class="product-option__heading">Размер</p>
                         <div class="product-option__content product-option__content_size">
                             <input type="hidden" class="product-option-input" name="size" value="M">
-                            <div class="option-content">
+                            <ul class="option-content">
                                 <% const sizes = [
                                     {value: 'S', active: false},
                                     {value: 'M', active: true},
                                     {value: 'L', active: false},
                                 ] %>
                                 <% sizes.forEach(function(size) { %>
-                                    <div class="option-content__item" data-type="size" data-value="<%=size.value %>">
-                                        <div class="option <% if (size.active) {%> option_click <% } %> ">
+                                <li class="option-content__item" data-type="size" data-value="<%= size.value %>">
+                                    <div class="option <% if (size.active) { %> option_active <% } %> ">
                                             <span class="option__showcase">
-                                                <%=size.value %>
+                                                <%= size.value %>
                                             </span>
-                                        </div>
                                     </div>
+                                </li>
                                 <% }); %>
-                            </div>
+                            </ul>
                         </div>
                         <p class="product-option__heading">Цвет</p>
                         <div class="product-option__content product-option__content_color">
                             <input type="hidden" class="product-option-input" name="color" value="white">
-                            <div class="option-content">
+                            <ul class="option-content">
                                 <% const colors = [
-                                    {value: 'white', active: true, colorCode: '#fffafb', src:'img/tshirts/tshirt_white.jpg'},
-                                    {value: 'yellow', active: false, colorCode: '#e3d95e', src:'img/tshirts/tshirt_yellow.jpg' },
-                                    {value: 'green', active: false, colorCode: '#a5af96', src:'img/tshirts/tshirt_green.jpg'},
+                                    {
+                                        value: 'white',
+                                        active: true,
+                                        colorCode: '#fffafb',
+                                        src: 'img/tshirts/tshirt_white.jpg'
+                                    },
+                                    {
+                                        value: 'yellow',
+                                        active: false,
+                                        colorCode: '#e3d95e',
+                                        src: 'img/tshirts/tshirt_yellow.jpg'
+                                    },
+                                    {
+                                        value: 'green',
+                                        active: false,
+                                        colorCode: '#a5af96',
+                                        src: 'img/tshirts/tshirt_green.jpg'
+                                    },
                                 ] %>
                                 <% colors.forEach(function(color) { %>
-                                <div class="option-content__item" data-type="color" data-value="<%=color.value %>"
-                                     data-src="<%=color.src%>">
-                                    <div class="option <% if (color.active) {%>option_click<% } %>" style="background-color: <%=color.colorCode %>;">
+                                <li class="option-content__item" data-type="color" data-value="<%= color.value %>"
+                                    data-src="<%= color.src %>">
+                                    <div class="option <% if (color.active) { %>option_active<% } %>"
+                                         style="background-color: <%= color.colorCode %>;">
                                         <span class="option__showcase"></span>
                                     </div>
-                                </div>
+                                </li>
                                 <% }); %>
-                            </div>
+                            </ul>
                         </div>
 
                     </div>
@@ -182,9 +206,9 @@
     <div class="footer">
         <div class="footer__top">
             <div class="footer-content wrapper">
-                <div class="footer-content__link">
+                <div class="footer-content__links">
                     <div class="footer-content__item">
-                        <div class="footer-menu footer-support">
+                        <div class="footer-menu footer-menu_support">
                             <span class="footer-menu__header">Сервис и поддержка</span>
                             <div class="footer-menu__service">
                                 <div class="footer-link link-support">
@@ -192,28 +216,36 @@
                                         'Возврат товара', 'Публичная оферта', 'Доставка',
                                         'Способы оплаты', 'Правила продажи', 'Возврат денежных средств',
                                         'Вопросы и ответы'] %>
-                                    <% footer_Service.forEach(function(link) { %>
-                                        <a href="#" class="footer-link__link"><%= link %></a>
-                                    <% }); %>
+                                    <ul class="footer-link__list">
+                                        <% footer_Service.forEach(function(link) { %>
+                                        <li class="footer-link__item">
+                                            <a href="#" class="footer-link__link"><%= link %></a>
+                                        </li>
+                                        <% }); %>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="footer-content__item">
+                    <div class="footer-content__item footer-content__item_padding">
 
                         <div class="footer-menu">
-                            <span class="footer-menu__header footer-menu__header__company">О компании</span>
+                            <span class="footer-menu__header footer-menu__header_company">О компании</span>
                             <div class="footer-menu__service">
                                 <div class="footer-link">
                                     <% const footer_Company = ['О нас',
                                         'Контакты', 'Вакансии', 'Партнеры',
                                         'Сертификаты', 'Преимущества', 'Наши скидки'] %>
-                                    <% footer_Company.forEach(function(link) { %>
-                                    <a href="#" class="footer-link__link">
-                                        <%= link %></a>
-                                    <% }); %>
+                                    <ul class="footer-link__list">
+                                        <% footer_Company.forEach(function(link) { %>
+                                        <li class="footer-link__item">
+                                            <a href="#" class="footer-link__link">
+                                                <%= link %></a>
+                                        </li>
+                                        <% }); %>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -227,22 +259,19 @@
                         <div class="footer-info footer-promo">
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <img class="info-block__image" src="img/icons/delivery.svg" alt="delivery"
-                                         style="width: 44px; height: 25px;">
+                                    <img class="info-block__image" src="img/icons/delivery.svg" alt="delivery">
                                     <p class="info-block__text">бесплатная доставка от 4000 ₽</p>
                                 </div>
                             </div>
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <img class="info-block__image" src="img/icons/heart.svg" alt="heart"
-                                         style="width: 44px; height: 25px;">
+                                    <img class="info-block__image" src="img/icons/heart.svg" alt="heart">
                                     <p class="info-block__text">пробники в подарок при каждой покупке</p>
                                 </div>
                             </div>
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <img class="info-block__image" src="img/icons/cup.svg" alt="cup"
-                                         style="width: 44px; height: 25px;">
+                                    <img class="info-block__image" src="img/icons/cup.svg" alt="cup">
                                     <p class="info-block__text">акции и подарки за покупку</p>
                                 </div>
                             </div>
@@ -250,12 +279,9 @@
                     </div>
                     <div class="footer-content__item ">
                         <div class="footer-social">
-                            <img class="footer-social__item" src="img/icons/facebook.svg" alt="Facebook"
-                                 style="width: 28px; height: 25px;">
-                            <img class=" footer-social__item" src="img/icons/twitter.svg" alt="Twitter"
-                                 style="width: 28px; height: 25px;">
-                            <img class="footer-social__item" src="img/icons/instagram.svg" alt="Instagram"
-                                 style="width: 28px; height: 25px;">
+                            <img class="footer-social__item" src="img/icons/facebook.svg" alt="Facebook">
+                            <img class=" footer-social__item" src="img/icons/twitter.svg" alt="Twitter">
+                            <img class="footer-social__item" src="img/icons/instagram.svg" alt="Instagram">
                         </div>
                     </div>
                 </div>

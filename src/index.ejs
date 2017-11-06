@@ -14,8 +14,9 @@
 
 <div class="page__header">
     <div class="header-container wrapper">
-        <img class="shop-logo" alt="logo-shop" src="img/the_shop_logo.svg">
-        <img class="oggetto-logo" alt="oggetto-logo" src="img/oggetto_logo.svg">
+        <span class="shop-logo" alt="logo-shop"> <%- include('svg/the_shop_logo'); %> </span>
+        <span class="oggetto-logo" alt="oggetto-logo" width="40px"
+        height="40px"> <%- include('svg/company-logo'); %> </span>
         <span class="contact-phone">+7 (812)-2-12-85-06</span>
     </div>
 
@@ -258,19 +259,19 @@
                         <div class="footer-info footer-promo">
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <img class="info-block__image" src="img/icons/delivery.svg" alt="delivery">
+                                    <div class="info-block__image" src="img/icons/delivery.svg" alt="delivery"><%- include('svg/delivery'); %></div>
                                     <p class="info-block__text">бесплатная доставка от 4000 ₽</p>
                                 </div>
                             </div>
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <img class="info-block__image" src="img/icons/heart.svg" alt="heart">
+                                    <div class="info-block__image" src="img/icons/heart.svg" alt="heart"><%- include('svg/heart'); %></div>
                                     <p class="info-block__text">пробники в подарок при каждой покупке</p>
                                 </div>
                             </div>
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <img class="info-block__image" src="img/icons/cup.svg" alt="cup">
+                                    <div class="info-block__image" src="img/icons/cup.svg" alt="cup"><%- include('svg/cup'); %></div>
                                     <p class="info-block__text">акции и подарки за покупку</p>
                                 </div>
                             </div>
@@ -278,9 +279,9 @@
                     </div>
                     <div class="footer-content__item ">
                         <div class="footer-social">
-                            <img class="footer-social__item" src="img/icons/facebook.svg" alt="Facebook">
-                            <img class=" footer-social__item" src="img/icons/twitter.svg" alt="Twitter">
-                            <img class="footer-social__item" src="img/icons/instagram.svg" alt="Instagram">
+                            <div class="footer-social__item" alt="Facebook"> <%- include('svg/facebook'); %></div>
+                            <div class=" footer-social__item" alt="Twitter"> <%- include('svg/twitter'); %></div>
+                            <div class="footer-social__item" alt="Instagram"> <%- include('svg/instagram'); %> </div>
                         </div>
                     </div>
                 </div>

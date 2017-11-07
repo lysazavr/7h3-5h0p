@@ -78,5 +78,9 @@ gulp.task('watch', () => {
     gulp.watch('src/js/**/*.*', ['js']);
 });
 
+gulp.task('set-prod-node-env', function() {
+    return process.env.NODE_ENV = 'production';
+});
+
 gulp.task('default', ['styles', 'html', 'img', 'js', 'livereload', 'watch']);
-gulp.task('prod', ['styles', 'html', 'img', 'js']);
+gulp.task('prod', ['styles', 'html', 'img', 'js', 'set-prod-node-env']);

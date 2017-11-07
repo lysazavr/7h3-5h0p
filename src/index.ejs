@@ -14,9 +14,10 @@
 
 <div class="page__header">
     <div class="header-container wrapper">
-        <span class="shop-logo" alt="logo-shop"> <%- include('svg/the_shop_logo'); %> </span>
-        <span class="oggetto-logo" alt="oggetto-logo" width="40px"
-        height="40px"> <%- include('svg/company-logo'); %> </span>
+        <span class="shop-logo" alt="logo-shop">
+            <%- include('svg/the_shop_logo'); %> </span>
+        <span class="oggetto-logo" alt="oggetto-logo">
+            <%- include('svg/company-logo'); %> </span>
         <span class="contact-phone">+7 (812)-2-12-85-06</span>
     </div>
 
@@ -137,7 +138,7 @@
                                 <% sizes.forEach(function(size) { %>
                                 <li class="option-content__item" data-type="size" data-value="<%= size.value %>">
                                     <div class="option <% if (size.active) { %> option_active <% } %> ">
-                                            <span class="option__showcase option__showcase_active">
+                                            <span class="option__showcase <% if (size.active) { %>option__showcase_active<% } %> ">
                                                 <%= size.value %>
                                             </span>
                                     </div>
@@ -259,19 +260,19 @@
                         <div class="footer-info footer-promo">
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <div class="info-block__image" src="img/icons/delivery.svg" alt="delivery"><%- include('svg/delivery'); %></div>
+                                    <div class="info-block__image" alt="delivery"> <%- include('svg/delivery'); %> </div>
                                     <p class="info-block__text">бесплатная доставка от 4000 ₽</p>
                                 </div>
                             </div>
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <div class="info-block__image" src="img/icons/heart.svg" alt="heart"><%- include('svg/heart'); %></div>
+                                    <div class="info-block__image" alt="heart"> <%- include('svg/heart'); %> </div>
                                     <p class="info-block__text">пробники в подарок при каждой покупке</p>
                                 </div>
                             </div>
                             <div class="footer-info__item">
                                 <div class="info-block">
-                                    <div class="info-block__image" src="img/icons/cup.svg" alt="cup"><%- include('svg/cup'); %></div>
+                                    <div class="info-block__image" alt="cup"> <%- include('svg/cup'); %> </div>
                                     <p class="info-block__text">акции и подарки за покупку</p>
                                 </div>
                             </div>
@@ -279,8 +280,8 @@
                     </div>
                     <div class="footer-content__item ">
                         <div class="footer-social">
-                            <div class="footer-social__item" alt="Facebook"> <%- include('svg/facebook'); %></div>
-                            <div class=" footer-social__item" alt="Twitter"> <%- include('svg/twitter'); %></div>
+                            <div class="footer-social__item" alt="Facebook"> <%- include('svg/facebook'); %> </div>
+                            <div class=" footer-social__item" alt="Twitter"> <%- include('svg/twitter'); %> </div>
                             <div class="footer-social__item" alt="Instagram"> <%- include('svg/instagram'); %> </div>
                         </div>
                     </div>

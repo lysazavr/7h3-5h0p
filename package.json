@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
     "dev": "gulp",
-    "prod": "NODE_ENV=production gulp prod",
+    "prod": "gulp prod",
     "lint": "eslint src && stylelint src/less/*.less && ejslint src/*.ejs",
     "precommit": "npm run lint"
   },

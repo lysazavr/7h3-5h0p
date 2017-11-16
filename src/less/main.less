@@ -588,38 +588,24 @@
         margin-left: 0;
         margin-bottom: 36px;
     }
-}
 
-.option {
-    width: 65px;
-    height: 65px;
-    border: 1px solid #000;
-    margin-right: 9px;
-    position: relative;
-
-    &_active {
-        border: 3px solid @font-color;
-        height: 68px;
-        box-sizing: border-box;
-    }
-
-    &__showcase {
+    &__item{
         display: inline-block;
+        border:1px solid #000;
+        width: 65px;
+        height: 40px;
+        text-align: center;
         font-size: 36px;
-        position: absolute;
-        top: 12px;
-        left: 21px;
+        padding: 12px 0;
+        margin-right: 6px;
 
-        &_active {
-            position: absolute;
-            left: 14px;
-        }
-
-        &_size {
-            left: 14px;
+        &_active{
+            outline: 4px solid #cc0000;
+            outline-offset: -3px;
         }
     }
 }
+
 
 .button {
     vertical-align: middle;

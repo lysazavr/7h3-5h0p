@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 </head>
-<body class="page">
+<body id="doc" class="page">
 
 <div class="page__header">
     <div class="header-container wrapper">
@@ -102,7 +102,7 @@
     <div class="product">
         <div class="product__media">
             <div class="product-box">
-                <img class="product-box__product-img" alt="product-image" src="img/tshirts/tshirt_white.jpg">
+                <img id="productPicture" class="product-box__product-img" alt="product-image" src="img/tshirts/tshirt_white.jpg">
             </div>
         </div>
         <div class="product__shop wrapper">
@@ -129,19 +129,16 @@
                         <p class="product-option__heading">Размер</p>
                         <div class="product-option__content product-option__content_size">
                             <input type="hidden" class="product-option-input" name="size" value="M">
-                            <ul class="option-content">
+                            <ul id="sizeList" class="option-content">
                                 <% const sizes = [
                                     {value: 'S', active: false},
                                     {value: 'M', active: true},
                                     {value: 'L', active: false},
                                 ] %>
                                 <% sizes.forEach(function(size) { %>
-                                <li class="option-content__item" data-type="size" data-value="<%= size.value %>">
-                                    <div class="option <% if (size.active) { %> option_active <% } %> ">
-                                            <span class="option__showcase <% if (size.active) { %>option__showcase_active<% } %> ">
-                                                <%= size.value %>
-                                            </span>
-                                    </div>
+                                <li class="option-content__item  <% if (size.active) { %> option-content__item_active <% } %>  "
+                                    data-type="size" data-value="<%= size.value %>">
+                                    <%= size.value %>
                                 </li>
                                 <% }); %>
                             </ul>
@@ -149,7 +146,7 @@
                         <p class="product-option__heading">Цвет</p>
                         <div class="product-option__content product-option__content_color">
                             <input type="hidden" class="product-option-input" name="color" value="white">
-                            <ul class="option-content">
+                            <ul id="colorList" class="option-content">
                                 <% const colors = [
                                     {
                                         value: 'white',
@@ -171,12 +168,10 @@
                                     },
                                 ] %>
                                 <% colors.forEach(function(color) { %>
-                                <li class="option-content__item" data-type="color" data-value="<%= color.value %>"
+                                <li class="option-content__item <% if (color.active) { %>option-content__item_active<% } %>"
+                                    style="background-color: <%= color.colorCode %>;"
+                                    data-type="color" data-value="<%= color.value %>"
                                     data-src="<%= color.src %>">
-                                    <div class="option <% if (color.active) { %>option_active<% } %>"
-                                         style="background-color: <%= color.colorCode %>;">
-                                        <span class="option__showcase"></span>
-                                    </div>
                                 </li>
                                 <% }); %>
                             </ul>
@@ -300,7 +295,7 @@
     </div>
 </div>
 
-<script src="js/scripts.js"></script>
+<script type="module" src="js/scripts.js"></script>
 </body>
 
 </html>

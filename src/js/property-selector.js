@@ -5,21 +5,22 @@ export default class PropertySelector {
         this.el = el;
 
         this.el.addEventListener('click', ev => {
+            if(ev.target.classList.contains('option-content__item')) {
+                const type = ev.target.dataset['type'];
+                const value = ev.target.dataset['value'];
+                const src = ev.target.dataset['src'];
 
-            const type = ev.target.dataset['type'];
-            const value = ev.target.dataset['value'];
-            const src = ev.target.dataset['src'];
+                // remove active class from selected option item
+                const optionContent = ev.target.closest('.option-content');
+                const selectOptionItems = optionContent.getElementsByClassName('option-content__item_active');
+                for (let i = 0; i < selectOptionItems.length; i++) {
+                    selectOptionItems[i].classList.remove('option-content__item_active');
+                }
+                // add active class
+                ev.target.classList.add('option-content__item_active');
 
-            // remove active class from selected option item
-            const optionContent = ev.target.closest('.option-content');
-            const selectOptionItems = optionContent.getElementsByClassName('option-content__item_active');
-            for(let i = 0; i < selectOptionItems.length; i++) {
-                selectOptionItems[i].classList.remove('option-content__item_active');
+                this.dispatchEvent(type, value, src);
             }
-            // add active class
-            ev.target.classList.add('option-content__item_active');
-
-            this.dispatchEvent(type, value, src);
         });
     }
 

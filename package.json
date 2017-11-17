@@ -11,7 +11,7 @@
     "lint": "eslint src && stylelint src/less/*.less && ejslint src/*.ejs",
     "precommit": "npm run lint"
   },
-  "author": "Andrey Miskov",
+  "author": "Lusine Pantykina",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.11",

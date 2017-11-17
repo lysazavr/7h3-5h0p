@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+</head>
+<body id="doc" class="page">
+
+<div class="page__header">
+    <div class="header-container wrapper">
+        <span class="shop-logo" alt="logo-shop">
+            <%- include('svg/the_shop_logo'); %> </span>
+        <span class="oggetto-logo" alt="oggetto-logo">
+            <%- include('svg/company-logo'); %> </span>
+        <span class="contact-phone">+7 (812)-2-12-85-06</span>
+    </div>
+
+</div>
+
+<div class="page__menu">
+    <div class="menu-container wrapper">
+        <div class="menu-container__categories">
+            <div class="categories-menu">
+                <% const menu = [{title: 'LISP', active: true},
+                    {title: 'OCaml', active: false},
+                    {title: 'Java Script', active: false},
+                    {title: 'Python', active: false},
+                    {title: 'PHP', active: false}] %>
+                <ul class="categories-menu__list">
+                    <% menu.forEach(function(item) { %>
+                    <li class="categories-menu__items">
+                        <a href="#"
+                           class="categories-menu__item <% if(item.active) { %> categories-menu__item_active <% } %>"><%= item.title %></a>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="search">
+            <form class="search-form">
+                <input type="search" class="search__input" placeholder="">
+                <input type="submit" class="search__button" value="">
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="page__hidden">
+    <div class="hidden-menu-phone">
+        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+        <label class="btn-menu" for="hmt"> <span class="first"></span> <span class="second"></span> <span
+                    class="third"></span> </label>
+        <ul class="hidden-menu">
+            <% const mobile_Menu = [{title: 'LISP', active: true},
+                {title: 'OCaml', active: false},
+                {title: 'Java Script', active: false},
+                {title: 'Python', active: false},
+                {title: 'PHP', active: false}] %>
+            <% mobile_Menu.forEach(function (item) { %>
+            <li>
+                <a href="#"
+                   class="hidden-menu__item <% if(item.active) { %> hidden-menu__item_active <% } %>">
+                    <%= item.title %></a>
+            </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+<div class="page__breadcrumbs wrapper">
+
+
+    <div class="breadcrumbs">
+        <% const breadcrumbs = ['LISP', 'Одежда', 'Футболки'] %>
+        <ul class="breadcrumbs__list">
+            <% breadcrumbs.forEach(function(item, index) { %>
+            <li class="breadcrumbs__items">
+                <% if(index < (breadcrumbs.length - 1)) { %>
+                <a href="#" class="breadcrumbs__item"><%= item %></a>/
+                <% } else { %>
+                <span class="breadcrumbs__item breadcrumbs__item_active"> <%= item %> </span>
+                <% } %>
+            </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+
+<div class="page__product wrapper">
+    <div class="product">
+        <div class="product__media">
+            <div class="product-box">
+                <img id="productPicture" class="product-box__product-img" alt="product-image" src="img/tshirts/tshirt_white.jpg">
+            </div>
+        </div>
+        <div class="product__shop wrapper">
+            <div class="about-product">
+                <div class="about-product__name">
+                    <div class="product-name">
+                        <h1 class="product-name__brand">Футболка Alien technology</h1>
+                    </div>
+                </div>
+                <div class="about-product__description">
+                    <div class="description">
+                        <p class="description__product-consist">Состав: 100% хлопок, динамическая типизация, польская
+                            нотация.
+                            Производство: Россия.</p>
+                    </div>
+                </div>
+                <div class="about-product__price">
+                    <div class="product-price">
+                        <p class="product-price__regular">1500₽</p>
+                    </div>
+                </div>
+                <form class="form-product" id="form-product">
+                    <div class="product-option">
+                        <p class="product-option__heading">Размер</p>
+                        <div class="product-option__content product-option__content_size">
+                            <input type="hidden" class="product-option-input" name="size" value="M">
+                            <ul id="sizeList" class="option-content">
+                                <% const sizes = [
+                                    {value: 'S', active: false},
+                                    {value: 'M', active: true},
+                                    {value: 'L', active: false},
+                                ] %>
+                                <% sizes.forEach(function(size) { %>
+                                <li class="option-content__item  <% if (size.active) { %> option-content__item_active <% } %>  "
+                                    data-type="size" data-value="<%= size.value %>">
+                                    <%= size.value %>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                        <p class="product-option__heading">Цвет</p>
+                        <div class="product-option__content product-option__content_color">
+                            <input type="hidden" class="product-option-input" name="color" value="white">
+                            <ul id="colorList" class="option-content">
+                                <% const colors = [
+                                    {
+                                        value: 'white',
+                                        active: true,
+                                        colorCode: '#fffafb',
+                                        src: 'img/tshirts/tshirt_white.jpg'
+                                    },
+                                    {
+                                        value: 'yellow',
+                                        active: false,
+                                        colorCode: '#e3d95e',
+                                        src: 'img/tshirts/tshirt_yellow.jpg'
+                                    },
+                                    {
+                                        value: 'green',
+                                        active: false,
+                                        colorCode: '#a5af96',
+                                        src: 'img/tshirts/tshirt_green.jpg'
+                                    },
+                                ] %>
+                                <% colors.forEach(function(color) { %>
+                                <li class="option-content__item <% if (color.active) { %>option-content__item_active<% } %>"
+                                    style="background-color: <%= color.colorCode %>;"
+                                    data-type="color" data-value="<%= color.value %>"
+                                    data-src="<%= color.src %>">
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="button">
+                        <button class="button__buy">
+                            Купить
+                        </button>
+                    </div>
+                </form>
+                <div class="about-product__choice">
+                    <div class="buy-later">
+                        <img class="buy-later__img" alt="like" src="img/icons/like.png">
+                        <a href="#" class="buy-later__text">Отложить на потом</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="page__footer">
+    <div class="footer">
+        <div class="footer__top">
+            <div class="footer-content wrapper">
+                <div class="footer-content__links">
+                    <div class="footer-content__item">
+                        <div class="footer-menu footer-menu_support">
+                            <span class="footer-menu__header">Сервис и поддержка</span>
+                            <div class="footer-menu__service">
+                                <div class="footer-link link-support">
+                                    <% const footer_Service = ['Как сделать заказ',
+                                        'Возврат товара', 'Публичная оферта', 'Доставка',
+                                        'Способы оплаты', 'Правила продажи', 'Возврат денежных средств',
+                                        'Вопросы и ответы'] %>
+                                    <ul class="footer-link__list">
+                                        <% footer_Service.forEach(function(link) { %>
+                                        <li class="footer-link__item">
+                                            <a href="#" class="footer-link__link"><%= link %></a>
+                                        </li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="footer-content__item footer-content__item_padding">
+
+                        <div class="footer-menu">
+                            <span class="footer-menu__header footer-menu__header_company">О компании</span>
+                            <div class="footer-menu__service">
+                                <div class="footer-link">
+                                    <% const footer_Company = ['О нас', 'Контакты', 'Вакансии', 'Партнеры',
+                                        'Сертификаты', 'Преимущества', 'Наши скидки'] %>
+                                    <ul class="footer-link__list">
+                                        <% footer_Company.forEach(function(link) { %>
+                                        <li class="footer-link__item">
+                                            <a href="#" class="footer-link__link">
+                                                <%= link %></a>
+                                        </li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="footer-content__info">
+                    <div class="footer-content__item ">
+                        <div class="footer-info footer-promo">
+                            <div class="footer-info__item">
+                                <div class="info-block">
+                                    <div class="info-block__image" alt="delivery"> <%- include('svg/delivery'); %> </div>
+                                    <p class="info-block__text">бесплатная доставка от 4000 ₽</p>
+                                </div>
+                            </div>
+                            <div class="footer-info__item">
+                                <div class="info-block">
+                                    <div class="info-block__image" alt="heart"> <%- include('svg/heart'); %> </div>
+                                    <p class="info-block__text">пробники в подарок при каждой покупке</p>
+                                </div>
+                            </div>
+                            <div class="footer-info__item">
+                                <div class="info-block">
+                                    <div class="info-block__image" alt="cup"> <%- include('svg/cup'); %> </div>
+                                    <p class="info-block__text">акции и подарки за покупку</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-content__item ">
+                        <div class="footer-social">
+                            <div class="footer-social__item" alt="Facebook"> <%- include('svg/facebook'); %> </div>
+                            <div class=" footer-social__item" alt="Twitter"> <%- include('svg/twitter'); %> </div>
+                            <div class="footer-social__item" alt="Instagram"> <%- include('svg/instagram'); %> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer__copyright">
+            <div class="copyright wrapper">
+                <p class="copyright__item">2005-2017 © 7h35h0p.ru — модный интернет-магазин одежды, обуви и
+                    аксессуаров</p>
+                <p class="copyright__item">Все права защищены. Доставка по всей России!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="js/scripts.js"></script>
+</body>
+
+</html>
+
+
+
